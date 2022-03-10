@@ -18,5 +18,6 @@ export const getRepos = async () => {
      */
     const data = await response.json();
     console.log(`response = ${JSON.stringify(data)}`);
-    return data;
+    // return all the items, even when incomplete_results is true
+    return data.items;
 }
