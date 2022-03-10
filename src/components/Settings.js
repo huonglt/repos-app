@@ -5,7 +5,7 @@ import logo from "../images/vacasa-logo.jpeg";
 const Settings = () => {
   return (
     <div className="settings-container">
-      <div>Settings</div>
+      <div className="header">Settings</div>
       <div className="settings">
         <div className="settings-logo"><img src={logo} alt="vacasa-logo" className="settings-logo" /></div>
         <div className="settings-block">
