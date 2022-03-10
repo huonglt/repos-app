@@ -1,22 +1,14 @@
 import { getRepos } from "./api.js";
 
 describe("api module", () => {
-  /**
-   * Mock fetch
-   */
-  const realFetch = global.fetch;
+  beforeAll(() => jest.spyOn(global, "fetch"));
 
-  beforeAll(() => {
-    global.fetch = () => {
-      Promise.resolve({
-        kson: () => Promise.resolve([]),
-      });
-    };
+  it("getRepos has url and header accept correctly", async () => {
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({ success: true }),
+    });
+    await getRepos();
+    expect(global.fetch).toHaveBeenCalledTimes(1);
   });
-
-  afterAll(() => {
-    global.fetch = realFetch;
-  });
-
-  it("getRepos has url and header accept correctly", async () => {});
 });
