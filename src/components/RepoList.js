@@ -18,7 +18,7 @@ const RepoList = () => {
     <div>
       <div>RepoList</div>
       {repos.map((repo, index) => {
-        return <Repo name={repo.name} key={index} />;
+        return <Repo name={repo.name} full_name={repo.full_name} description={repo.description} key={index} />;
       })}
     </div>
   );
