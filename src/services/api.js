@@ -22,8 +22,9 @@ export const getRepos = async () => {
     const data = await response.json();
     
     // checking for valid server data. items must exist and must be an array
-    if (Array.isArray(data) && data.items) {
-      const items = data.items.map(({ name, full_name, description }) =>
+    if (Array.isArray(data.items)) {
+      let items = [];
+      data.items.map(({ name, full_name, description }) =>
         items.push({ name, full_name, description })
       );
       return items;
