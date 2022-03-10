@@ -90,6 +90,10 @@
   line-height: 25px;
 }
 
+.no-border-bottom {
+  border-bottom: 0;
+}
+
 .link-text {
 }
 

@@ -16,7 +16,7 @@ const Settings = () => {
       </div>
       <div className="header">Support</div>
       <div className="support-container">
-        <LinkItem text="Privacy Policy"/>
+        <LinkItem text="Privacy Policy" className="no-border-bottom"/>
         <LinkItem text="Terms of Service"/>
       </div>
     </div>
