@@ -53,3 +53,12 @@
   font-weight: 600;
   color: black;
 }
+
+.settings-container {
+  margin: 30px;
+}
+
+.settings-logo {
+  width: 60px;
+  height: 60px;
+}
