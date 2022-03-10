@@ -1,14 +1,12 @@
 
 import './App.css';
-import NavBar from './components/NavBar';
-import RepoList from './components/RepoList';
+import Main from './components/Main';
 
 
 function App() {
   return (
     <div className="App">
-      <NavBar/>
-      <RepoList/>
+      <Main/>
     </div>
   );
 }

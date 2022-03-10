@@ -1,15 +1,17 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-const NavBar = () => {
-  const [activeItem, setActiveItem] = useState('repos');
+const NavBar = ({activeItem, selectItem}) => {
 
   const classNameRepos = `${activeItem === 'repos' && 'navbar-active-item'} navbar-item`;
   const classNameSettings = `${activeItem === 'settings' && 'navbar-active-item'} navbar-item`;
 
+  const handleReposClick = () => selectItem('repos');
+  const handleSettingsClick = () => selectItem('settings');
+
   return (
     <div className="navbar-container">
-      <div className={classNameRepos}>Repositories</div>
-      <div className={classNameSettings}>Settings</div>
+      <div className={classNameRepos} onClick={handleReposClick}>Repositories</div>
+      <div className={classNameSettings} onClick={handleSettingsClick}>Settings</div>
     </div>
   ) ;
 };
