@@ -5,11 +5,22 @@ import "./repo.css";
 
 const RepoList = () => {
   const [repos, setRepos] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
-      const fetchedRepos = await getRepos();
-      setRepos(fetchedRepos);
+      try {
+        setIsLoading(true);
+
+        const fetchedRepos = await getRepos();
+        console.log(`fetchedRepos = ${JSON.stringify(fetchedRepos)}, type of fetchedRepos = ${fetchedRepos instanceof Error}`);
+        setRepos(fetchedRepos);
+      } catch(err) {
+       console.log(`err = ${JSON.stringify(err)}`);
+      
+      } finally {
+        setIsLoading(false);
+      }
     }
 
     fetchData();
@@ -18,18 +29,19 @@ const RepoList = () => {
   return (
     <div className="repos-container">
       <div className="header">Repositories</div>
-      <div className="repos">
-        {repos.map((repo, index) => {
-          return (
+      {isLoading && <div>Loading data...</div>}
+      {!isLoading && Array.isArray(repos) && (
+        <div className="repos">
+          {repos.map((repo, index) => (
             <Repo
               name={repo.name}
               full_name={repo.full_name}
               description={repo.description}
               key={index}
             />
-          );
-        })}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
