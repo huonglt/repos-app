@@ -1,6 +1,7 @@
 import React from "react";
 import "./repo.css";
 import logo from "../images/vacasa-logo.jpeg";
+import LinkItem from "./LinkItem";
 
 const Settings = () => {
   return (
@@ -12,6 +13,11 @@ const Settings = () => {
           <div className="settings-text">Vacasa Interview</div>
           <div className="settings-text">vacasa.interview@vacasa.com</div>
         </div>
+      </div>
+      <div className="header">Support</div>
+      <div className="support-container">
+        <LinkItem text="Privacy Policy"/>
+        <LinkItem text="Terms of Service"/>
       </div>
     </div>
   );

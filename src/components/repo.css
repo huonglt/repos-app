@@ -78,3 +78,22 @@
   width: 60px;
   height: 60px;
 }
+
+.support-container {
+  margin: 30px;
+}
+.link-container {
+  display: flex;
+  position: relative;
+  border: 1px solid #d0d7de;
+  padding: 8px;
+  line-height: 25px;
+}
+
+.link-text {
+}
+
+.link-arrow {
+  position: absolute;
+  right: 20px;
+}
