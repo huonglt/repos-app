@@ -88,6 +88,7 @@
   border: 1px solid #d0d7de;
   padding: 8px;
   line-height: 25px;
+  cursor: pointer;
 }
 
 .no-border-bottom {
