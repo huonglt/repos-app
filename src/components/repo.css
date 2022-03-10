@@ -3,6 +3,8 @@
   flex-direction: column;
   text-align: left;
   border: 1px solid #cccccc;
+  padding: 20px;
+  line-height: 25px;
 }
 
 .repos-container {
@@ -18,5 +20,9 @@
 
 .header {
   font-size: 18px;
+  font-weight: 600;
+}
+
+.bold {
   font-weight: 600;
 }
