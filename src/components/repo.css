@@ -31,3 +31,18 @@
 .bold {
   font-weight: 600;
 }
+
+.navbar-container {
+  display: flex;
+  background: #f6f8fa;
+  justify-content: left;
+  align-items: center;
+  padding: 8px 20px;
+  border: 1px solid #d0d7de;
+}
+
+.navbar-item {
+  line-height: 30px;
+  font-size: 18px;
+  padding-right: 30px;
+}
