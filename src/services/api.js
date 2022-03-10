@@ -9,7 +9,10 @@ export const getRepos = async () => {
       'Accept': 'application/vnd.github.v3+json'
     }});
 
-    const data = response.json();
-    console.log(`response = ${data}`);
+    /**
+     * response.json() returns a promise so need await
+     */
+    const data = await response.json();
+    console.log(`response = ${JSON.stringify(data)}`);
     return data;
 }
