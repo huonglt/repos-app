@@ -12,12 +12,16 @@ export const useApi = (apiService) => {
 
       try {
         const result = await apiService();
-        console.log(`result = ${JSON.stringify(result)}`);
-        setData(result);
+        if(result instanceof Error) {
+          setIsError(true);
+        } else {
+          setData(result);
+        }
       } catch(err) {
         setIsError(true);
+      } finally {
+        setIsLoading(false);
       }
-      setIsLoading(false);
     }
 
     fetchData();
