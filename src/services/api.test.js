@@ -1,7 +1,22 @@
 import { getRepos } from "./api.js";
 
 describe("api module", () => {
-  it("getRepos has url and header accept correctly", async () => {
-    
+  /**
+   * Mock fetch
+   */
+  const realFetch = global.fetch;
+
+  beforeAll(() => {
+    global.fetch = () => {
+      Promise.resolve({
+        kson: () => Promise.resolve([]),
+      });
+    };
   });
+
+  afterAll(() => {
+    global.fetch = realFetch;
+  });
+
+  it("getRepos has url and header accept correctly", async () => {});
 });
