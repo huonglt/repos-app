@@ -96,4 +96,7 @@
 .link-arrow {
   position: absolute;
   right: 20px;
+  line-height: 25px;
+  color: #57605d;
+  font-size: 18px;
 }
