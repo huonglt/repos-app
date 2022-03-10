@@ -47,3 +47,8 @@
   padding-right: 30px;
   color: #57605d;
 }
+
+.navbar-active-item {
+  font-weight: 600;
+  color: black;
+}
