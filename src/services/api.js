@@ -9,6 +9,7 @@ export const REQUEST_HEADER = {
  * @returns {Object}
  */
 export const getRepos = async () => {
+  let err = null;
   try {
     const response = await fetch(QUERY_REPOS_URL, {
       method: "GET",
@@ -19,11 +20,20 @@ export const getRepos = async () => {
      * response.json() returns a promise so need await
      */
     const data = await response.json();
-    console.log(`response = ${JSON.stringify(data)}`);
-    // return all the items, even when incomplete_results is true
-    return data.items;
-  } catch (err) {
-    console.error(`error while fetching repos: ${err}`);
-    return { err };
+    
+    // checking for valid server data. items must exist and must be an array
+    if (Array.isArray(data) && data.items) {
+      const items = data.items.map(({ name, full_name, description }) =>
+        items.push({ name, full_name, description })
+      );
+      return items;
+    } else {
+      // stale server data
+      err = new Error('stale server data');
+    }
+  } catch (error) {
+    console.error(`error while fetching repos: ${error}`);
+    err = error;
   }
+  return err;
 };
