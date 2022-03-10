@@ -1,38 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { getRepos } from "../services/api";
 import Repo from "./Repo";
 import "./repo.css";
+import { useApi } from "../hooks/useApi";
 
 const RepoList = () => {
-  const [repos, setRepos] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, isError, data] = useApi(getRepos);
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        setIsLoading(true);
-
-        const fetchedRepos = await getRepos();
-        console.log(`fetchedRepos = ${JSON.stringify(fetchedRepos)}, type of fetchedRepos = ${fetchedRepos instanceof Error}`);
-        setRepos(fetchedRepos);
-      } catch(err) {
-       console.log(`err = ${JSON.stringify(err)}`);
-      
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    fetchData();
-  }, []);
-
+  console.log(`isLoading = ${isLoading}, isError = ${isError}, data = ${JSON.stringify(data)}`);
   return (
     <div className="repos-container">
       <div className="header">Repositories</div>
       {isLoading && <div>Loading data...</div>}
-      {!isLoading && Array.isArray(repos) && (
+      {isError && <div>Error while loading data</div> }
+      {data && Array.isArray(data) && (
         <div className="repos">
-          {repos.map((repo, index) => (
+          {data.map((repo, index) => (
             <Repo
               name={repo.name}
               full_name={repo.full_name}
