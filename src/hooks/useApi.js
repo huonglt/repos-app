@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 /**
  * Hook to call apiService
@@ -30,13 +30,5 @@ export const useApi = (apiService) => {
     }
   }, [apiService]);
 
-  useEffect(() => {
-    loadData();
-  }, [loadData]);
-
-  /**
-   * allow user to retry if error occurs
-   */
-  const retry = loadData;
-  return [isLoading, isError, data, retry];
+  return [isLoading, isError, data, loadData];
 };
