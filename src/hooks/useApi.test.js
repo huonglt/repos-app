@@ -1,16 +1,16 @@
-import { renderHook } from '@testing-library/react-hooks';
-import { act } from 'react-dom/test-utils';
-import { useApi } from './useApi';
+import { renderHook } from "@testing-library/react-hooks";
+import { act } from "react-dom/test-utils";
+import { useApi } from "./useApi";
 
-describe('useApi hook', () => {
-  it('isLoading, isError, data, loadData correct', async () => {
+describe("useApi hook", () => {
+  it("isLoading, isError, data, loadData correct", async () => {
     const mockApiService = jest.fn();
     const { result } = renderHook(() => useApi(mockApiService));
-    
-    const [isLoading, isError, data, loadData] = result.current;
+
+    const { isLoading, isError, data, loadData } = result.current;
 
     /**
-     * isLoading = fales
+     * isLoading = false
      * isError = false
      * data = null
      * loadData is a function
@@ -19,5 +19,28 @@ describe('useApi hook', () => {
     expect(isError).toEqual(false);
     expect(data).toEqual(null);
     expect(loadData instanceof Function).toEqual(true);
-  })
-})
+  });
+
+  it("api service call success, hook states are correct", async () => {
+    const mockApiService = jest.fn().mockResolvedValue("success call");
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useApi(mockApiService)
+    );
+
+    // call method loadData, react states will be updated
+    act(() => {
+      result.current.loadData();
+    });
+
+    // wait for next time the hook render
+    await waitForNextUpdate();
+
+    /**
+     * states are correct
+     */
+    const { isLoading, isError, data } = result.current;
+    expect(isLoading).toEqual(false);
+    expect(isError).toEqual(false);
+    expect(data).toEqual("success call");
+  });
+});
