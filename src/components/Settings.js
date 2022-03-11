@@ -1,8 +1,11 @@
 import React from "react";
 import "./repo.css";
 import logo from "../images/vacasa-logo.jpeg";
-import LinkItem from "./LinkItem";
+import SettingItem from "./SettingItem";
 
+/**
+ * UI component for Settings page
+ */
 const Settings = () => {
   return (
     <div className="settings-container">
@@ -16,8 +19,8 @@ const Settings = () => {
       </div>
       <div className="header">Support</div>
       <div className="support-container">
-        <LinkItem text="Privacy Policy" className="no-border-bottom"/>
-        <LinkItem text="Terms of Service"/>
+        <SettingItem text="Privacy Policy" className="no-border-bottom"/>
+        <SettingItem text="Terms of Service"/>
       </div>
     </div>
   );

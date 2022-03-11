@@ -1,5 +1,8 @@
 import React from 'react';
 
+/**
+ * Component to show Navigation items: Repositories & Settings
+ */
 const NavBar = ({activeItem, selectItem}) => {
 
   const classNameRepos = `${activeItem === 'repos' && 'navbar-active-item'} navbar-item`;

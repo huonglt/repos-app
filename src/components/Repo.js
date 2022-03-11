@@ -1,6 +1,9 @@
 import React from "react";
 import "./repo.css";
 
+/**
+ * UI component to show Repo in a Card
+ */
 const Repo = ({ name, full_name, description }) => {
   return (
     <div className="repo">

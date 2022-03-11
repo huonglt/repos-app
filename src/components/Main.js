@@ -3,6 +3,9 @@ import NavBar from "./NavBar";
 import RepoList from "./RepoList";
 import Settings from "./Settings";
 
+/**
+ * UI component showing navbar & handle navigation when nav bar item clicked
+ */
 const Main = () => {
   const [activeNavBarItem, setActiveNavBarItem] = useState("repos");
 

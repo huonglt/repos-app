@@ -4,6 +4,9 @@ import Repo from "./Repo";
 import "./repo.css";
 import { useApi } from "../hooks/useApi";
 
+/**
+ * UI component for Repositories page
+ */
 const RepoList = () => {
   const [isLoading, isError, data] = useApi(getRepos);
 
