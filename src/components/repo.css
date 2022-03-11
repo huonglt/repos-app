@@ -5,7 +5,7 @@
   border: 1px solid #d0d7de;
   padding: 20px;
   line-height: 25px;
-  margin: 25px;
+  margin: 25px 25px 25px 0;
   width: 50%;
 }
 
@@ -13,6 +13,7 @@
   display: flex;
   flex-direction: column;
   margin: 30px 30px;
+  padding: 0 20px;
 }
 
 .repos {
@@ -25,7 +26,6 @@
   font-weight: 600;
   line-height: 30px;
   text-align: left;
-  margin-left: 30px;
 }
 
 .bold {
