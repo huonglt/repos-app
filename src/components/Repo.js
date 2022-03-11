@@ -1,5 +1,5 @@
 import React from "react";
-import "./repo.css";
+import "./components.css";
 
 /**
  * UI component to show Repo in a Card

@@ -1,5 +1,5 @@
 import React from 'react';
-import './repo.css';
+import './components.css';
 
 /**
  * UI component for an item in Setting

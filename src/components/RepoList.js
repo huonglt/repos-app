@@ -1,7 +1,7 @@
 import React from "react";
 import { getRepos } from "../services/api";
 import Repo from "./Repo";
-import "./repo.css";
+import "./components.css";
 import { useApi } from "../hooks/useApi";
 
 /**

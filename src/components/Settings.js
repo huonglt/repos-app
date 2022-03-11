@@ -1,5 +1,5 @@
 import React from "react";
-import "./repo.css";
+import "./components.css";
 import logo from "../images/vacasa-logo.jpeg";
 import SettingItem from "./SettingItem";
 
