@@ -5,8 +5,8 @@ import React from 'react';
  */
 const NavBar = ({activeItem, selectItem}) => {
 
-  const classNameRepos = `${activeItem === 'repos' && 'navbar-active-item'} navbar-item`;
-  const classNameSettings = `${activeItem === 'settings' && 'navbar-active-item'} navbar-item`;
+  const classNameRepos = `${activeItem === 'repos' ? 'navbar-active-item' : ''} navbar-item`;
+  const classNameSettings = `${activeItem === 'settings' ? 'navbar-active-item' : ''} navbar-item`;
 
   const handleReposClick = () => selectItem('repos');
   const handleSettingsClick = () => selectItem('settings');
