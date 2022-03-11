@@ -6,7 +6,11 @@ export const REQUEST_HEADER = {
 
 /**
  * Method to query all repos for vacasaoss sorting by starrs desending order
- * @returns {Object}
+ * Might get 403 if rate limit exceeded. The error is below:
+ * {
+ * "message":"API rate limit exceeded for 118.92.32.240. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)",
+ * "documentation_url":"https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting"
+ * }
  */
 export const getRepos = async () => {
   let err = null;
@@ -33,7 +37,7 @@ export const getRepos = async () => {
       err = new Error('stale server data');
     }
   } catch (error) {
-    console.error(`error while fetching repos: ${error}`);
+    // 403 error, network error etc
     err = error;
   }
   return err;
