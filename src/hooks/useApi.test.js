@@ -3,7 +3,7 @@ import { act } from "react-dom/test-utils";
 import { useApi } from "./useApi";
 
 describe("useApi hook", () => {
-  it("isLoading, isError, data, loadData correct", async () => {
+  it("hook states are correct initially", async () => {
     const mockApiService = jest.fn();
     const { result } = renderHook(() => useApi(mockApiService));
 
