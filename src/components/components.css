@@ -39,7 +39,6 @@
   align-items: center;
   padding: 8px 20px;
   border: 1px solid #d0d7de;
-  width: 100%;
 }
 
 .navbar-item {
@@ -73,6 +72,7 @@
 
 .settings-text {
   line-height: 30px;
+  word-break: break-all;
 }
 
 .settings-logo {
