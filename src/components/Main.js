@@ -14,7 +14,7 @@ const Main = () => {
   };
 
   return (
-    <div>
+    <div className="main-container">
       <NavBar activeItem={activeNavBarItem} selectItem={selectNavBarItem} />
       {activeNavBarItem === "repos" && <RepoList />}
       {activeNavBarItem === "settings" && <Settings />}

@@ -39,6 +39,7 @@
   align-items: center;
   padding: 8px 20px;
   border: 1px solid #d0d7de;
+  width: 100%;
 }
 
 .navbar-item {
@@ -104,4 +105,18 @@
   line-height: 25px;
   color: #57605d;
   font-size: 18px;
+}
+
+.main-container {
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .repos {
+    flex-direction: column;
+  }
+
+  .repo {
+    width: 100%;
+  }
 }
