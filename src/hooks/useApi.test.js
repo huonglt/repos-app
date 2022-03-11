@@ -3,18 +3,21 @@ import { act } from 'react-dom/test-utils';
 import { useApi } from './useApi';
 
 describe('useApi hook', () => {
-  
-
-  it('perform correctly', async () => {
-    const mockApiService = jest.fn().mockImplementation(() => {
-      return Promise.resolve('test');
-    });
+  it('isLoading, isError, data, loadData correct', async () => {
+    const mockApiService = jest.fn();
     const { result } = renderHook(() => useApi(mockApiService));
-    /*await act(async () => {
-      //result.current.retry();
-      console.log(JSON.stringify(result.current));
-    })*/
-    //await waitForNextUpdate();
-    console.log(JSON.stringify(result.current));
+    
+    const [isLoading, isError, data, loadData] = result.current;
+
+    /**
+     * isLoading = fales
+     * isError = false
+     * data = null
+     * loadData is a function
+     */
+    expect(isLoading).toEqual(false);
+    expect(isError).toEqual(false);
+    expect(data).toEqual(null);
+    expect(loadData instanceof Function).toEqual(true);
   })
 })
