@@ -43,4 +43,27 @@ describe("useApi hook", () => {
     expect(isError).toEqual(false);
     expect(data).toEqual("success call");
   });
+
+  it("api service call fails, hook states are correct", async () => {
+    const mockApiService = jest.fn().mockRejectedValue('rejected');
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useApi(mockApiService)
+    );
+
+    // call method loadData, react states will be updated
+    act(() => {
+      result.current.loadData();
+    });
+
+    // wait for next time the hook render
+    await waitForNextUpdate();
+
+    /**
+     * states are correct
+     */
+    const { isLoading, isError, data } = result.current;
+    expect(isLoading).toEqual(false);
+    expect(isError).toEqual(true);
+    expect(data).toEqual(null);
+  });
 });
