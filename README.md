@@ -12,17 +12,16 @@ UI components can re-try easily in the event of api service fails
 ### To set up
 
 Get the source code\
-Then go the the folder containing the source code, run npm install
+Then go the the folder containing the source code, type npm install
 
 ### To run the app
 
-From the terminal, go to the folder of the source code, run npm start\
+From the terminal, go to the folder of the source code, type npm start\
 Open http://localhost:3000 to view the app in your browser
 
 ### To run tests
 
-From the terminal, go to the folder of the source code\
-Type: npm test
+From the terminal, go to the folder of the source code, type npm test
 
 ### Futher improvemnts
 
