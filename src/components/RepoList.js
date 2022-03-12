@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import { getRepos } from "../services/api";
+import { getRepos } from "../apis/api";
 import Repo from "./Repo";
 import "./components.css";
 import { useApi } from "../hooks/useApi";
