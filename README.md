@@ -27,6 +27,6 @@ Type: npm test
 
 ### Futher improvemnts
 
-More Beautiful looking UIs\
+Better UX designs\
 Make components more responsive\
 Beautiful stylings
