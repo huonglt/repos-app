@@ -1,6 +1,7 @@
 import RepoList from "../components/RepoList";
 import { render, screen } from "@testing-library/react";
 import { getRepos } from '../apis/api';
+import userEvent from "@testing-library/user-event";
 
 jest.mock('../apis/api');
 
@@ -38,5 +39,31 @@ describe('RepoList component', () => {
     expect(name).toBeInTheDocument();
     const description = await screen.findByText("list all repos on github of an organization");
     expect(description).toBeInTheDocument();
-  })
+  });
+
+  it('getRepos api fail, message Error while loading data shown and user can retry', async () => {
+    // mock getRepos to reject in 0s
+    getRepos.mockImplementation(() => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          reject(new Error('An error'));
+        }, 0);
+      });
+    });
+
+    // render RepoList component
+    render(<RepoList/>);
+
+    // Text Repositories in the document
+    expect(screen.getByText("Repositories")).toBeInTheDocument();
+
+    // Error while loading data
+    const errMsg = await screen.findByText('Error while loading data');
+    expect(errMsg).toBeInTheDocument();
+
+    // click Retry button, getRepos is called
+    // getRepos called 1s when component render, 2nd time when user click Retry button
+    userEvent.click(screen.getByText('Retry'));
+    expect(getRepos).toHaveBeenCalledTimes(2);
+  });
 });
