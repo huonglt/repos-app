@@ -30,5 +30,5 @@ export const useApi = (apiService) => {
     }
   }, [apiService]);
 
-  return [isLoading, isError, data, loadData];
+  return { isLoading, isError, data, loadData };
 };
