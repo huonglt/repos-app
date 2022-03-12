@@ -6,7 +6,8 @@ import userEvent from "@testing-library/user-event";
 jest.mock('../apis/api');
 
 const mockRepos = [
-      { name: 'repo-app', full_name: 'a((bc/repo-app', description: 'list all repos on github of an organization'}
+      { name: 'repo-app', full_name: 'huonglt/repo-app', description: 'list all repos on github of an organization'},
+      { name: 'react-app', full_name: 'huonglt/react-app', description: 'create simple react app'}
     ];
 
 describe('RepoList component', () => {
@@ -34,10 +35,19 @@ describe('RepoList component', () => {
     const loadingData = await screen.findByText("Loading data...");
     expect(loadingData).toBeInTheDocument()
 
-    // api service success, repo details in the document
-    const name = await screen.findByText("repo-app");
+    // api service success, 2 repos details in the document
+    let name = await screen.findByText("repo-app");
     expect(name).toBeInTheDocument();
-    const description = await screen.findByText("list all repos on github of an organization");
+    let full_name = await screen.findByText("huonglt/repo-app");
+    expect(full_name).toBeInTheDocument();
+    let description = await screen.findByText("list all repos on github of an organization");
+    expect(description).toBeInTheDocument();
+
+    name = await screen.findByText("react-app");
+    expect(name).toBeInTheDocument();
+    full_name = await screen.findByText("huonglt/react-app");
+    expect(full_name).toBeInTheDocument();
+    description = await screen.findByText("create simple react app");
     expect(description).toBeInTheDocument();
   });
 
