@@ -20,7 +20,7 @@ describe('RepoList component', () => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve(mockRepos);
-        }, 0);
+        }, 10);
       });
     });
 
@@ -47,7 +47,7 @@ describe('RepoList component', () => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           reject(new Error('An error'));
-        }, 0);
+        }, 10);
       });
     });
 
@@ -56,6 +56,10 @@ describe('RepoList component', () => {
 
     // Text Repositories in the document
     expect(screen.getByText("Repositories")).toBeInTheDocument();
+
+    // Text Loading data is shown
+    const loadingData = await screen.findByText("Loading data...");
+    expect(loadingData).toBeInTheDocument()
 
     // Error while loading data
     const errMsg = await screen.findByText('Error while loading data');
