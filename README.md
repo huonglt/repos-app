@@ -1,10 +1,10 @@
 ### About this app
 
-This app is bootstrapped with [Create React App](https://github.com/facebook/create-react-app) for a speedy development.\n
+This app is bootstrapped with [Create React App](https://github.com/facebook/create-react-app) for a speedy development.\
 
 It is built with pure css & create-react-app. Only @testing-library/react-hooks package added to write unit test for react hooks.\
 
-The app is fully responsive.
+The app is fully responsive.\
 Api services are handled with consideration of success and failure.\
 UI components can easily handle different states of backend data loading via a custom hook.\
 UI components can re-try easily in the event of api service fails
