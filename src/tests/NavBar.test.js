@@ -19,4 +19,4 @@ describe("NavBar component", () => {
     userEvent.click(screen.getByText("Settings"));
     expect(selectItem).toHaveBeenCalledWith("settings");
   });
-})
+});

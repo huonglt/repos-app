@@ -12,4 +12,4 @@ describe("Settings component", () => {
     expect(screen.getByText("Privacy Policy")).toBeInTheDocument();
     expect(screen.getByText("Terms of Service")).toBeInTheDocument();
   });
-})
+});

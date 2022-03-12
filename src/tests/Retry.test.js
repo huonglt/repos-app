@@ -13,5 +13,5 @@ describe("Retry component", () => {
     // click Retry button, retry function will be called
     userEvent.click(screen.getByText("Retry"));
     expect(retry).toHaveBeenCalledTimes(1);
-  })
-})
+  });
+});
