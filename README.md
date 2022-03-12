@@ -16,8 +16,7 @@ Then go the the folder containing the source code, run npm install
 
 ### To run the app
 
-From the terminal, go to the folder of the source code\
-Type npm start\
+From the terminal, go to the folder of the source code, run npm start\
 Open http://localhost:3000 to view the app in your browser
 
 ### To run tests
