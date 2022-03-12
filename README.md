@@ -25,6 +25,7 @@ From the terminal, go to the folder of the source code, type npm test
 
 ### Futher improvemnts
 
+Use Typescript for better type checking\
 Better UX designs\
 Make components more responsive\
 Beautiful stylings
