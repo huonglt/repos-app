@@ -10,7 +10,7 @@ import ErrorAndRetry from "./ErrorAndRetry";
  * UI component for Repositories page
  */
 const RepoList = () => {
-  const [isLoading, isError, data, loadData] = useApi(getRepos);
+  const {isLoading, isError, data, loadData} = useApi(getRepos);
   
   useEffect(() => {
     loadData();
