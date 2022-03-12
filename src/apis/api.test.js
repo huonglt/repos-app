@@ -5,9 +5,11 @@ describe("api module", () => {
   beforeAll(() => jest.spyOn(global, "fetch"));
 
   it("getRepos has url, header accept and return data correctly", async () => {
+
+    // return an empty array of items
     global.fetch.mockResolvedValueOnce({
       ok: true,
-      json: async () => ({ success: true }),
+      json: async () => ({ items: [] }),
     });
 
     // call getRepos method
@@ -27,7 +29,7 @@ describe("api module", () => {
       })
     );
 
-    // data return correctly
-    expect(data).toEqual({ success: true });
+    // data is an empty array
+    expect(data).toEqual([]);
   });
 });
